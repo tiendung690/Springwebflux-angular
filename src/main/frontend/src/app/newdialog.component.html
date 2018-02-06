@@ -1,0 +1,24 @@
+<div class="main-container">
+<div class="fixer-container">
+  <br>
+  <h3 style="color:#204d74;text-align:center">
+    New Tweet
+  </h3>
+  <br>
+  
+  
+    
+  <mat-form-field style="width:200px;">
+      <textarea (keyup)="checkLenght()" matInput [(ngModel)]="text"></textarea>
+    </mat-form-field>
+     
+    
+    <br>
+  <br>
+  
+  <mat-button-toggle aria-label="Align right" (click)="onNoClick()" >Cancel</mat-button-toggle>  
+  
+  <button color="primary" [disabled]="!enableButton" type="submit" (click)="create()" mat-raised-button>Save</button>
+ 
+</div>
+</div>

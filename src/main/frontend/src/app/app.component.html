@@ -1,0 +1,55 @@
+<div class="example-header">
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+  </mat-form-field>
+</div>
+
+<div class="example-container mat-elevation-z8">
+
+  <mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="created">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Created </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.createdAt | date: 'dd/MM/yyyy'}} </mat-cell>
+    </ng-container> 
+
+    <!-- Progress Column-->
+    <ng-container matColumnDef="text">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Text </mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.text}}</mat-cell>
+    </ng-container>
+
+
+
+    <!-- Delete Column-->
+    <ng-container matColumnDef="delete">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> Delete </mat-header-cell>
+      <mat-cell *matCellDef="let row"><app-deletetweet [id]="row.id" [text]="row.text"></app-deletetweet></mat-cell>
+    </ng-container>
+
+    <!-- Edit Column-->
+    <ng-container matColumnDef="edit">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> Edit </mat-header-cell>
+        <mat-cell *matCellDef="let row"><app-edittweet [id]="row.id" [text]="row.text"></app-edittweet></mat-cell>
+      </ng-container>
+       <!-- New Column-->
+    <ng-container matColumnDef="new">
+        <mat-header-cell *matHeaderCellDef mat-sort-header> New </mat-header-cell>
+        <mat-cell *matCellDef="let row"><app-newtweet [id]="row.id" [text]="row.text"></app-newtweet></mat-cell>
+      </ng-container>
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+  <br>
+
+ 
+ <mat-paginator  [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+</div>
+
+
+
+
