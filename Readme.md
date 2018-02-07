@@ -10,11 +10,11 @@
 
 ## Steps to Setup
 
-mvn spring-boot:run
+mvn clean install spring-boot:run
 
 The server will start at <http://localhost:8080>.
 
-![Alt text](https://drive.google.com/file/d/1fhpyRNy9YRtcJh-viTH0M0oMM9BQlz-C/view)
+![](images/TweetApp.JPG)
 
 ## Exploring the Rest APIs
 
